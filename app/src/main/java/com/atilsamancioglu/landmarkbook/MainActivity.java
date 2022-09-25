@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity {
-
+a
+    
     //static Landmark selectedLandmark;
     private ActivityMainBinding binding;
     ArrayList<Landmark> landmarkArrayList;
