@@ -30,7 +30,10 @@ public class DetailActivity extends AppCompatActivity {
         //Landmark selectedLandmark = (Landmark) intent.getSerializableExtra("landmark");
 
         Singleton singleton = Singleton.getInstance();
+        //olusan objeyi alldı
         Landmark selectedLandmark = singleton.getSelectedLandmark();
+        //landmarAdapter de neyi set ettiysem o dönüyor!!
+        //her zaman aynı obje olusur
 
         binding.landmarkNameText.setText(selectedLandmark.name);
         binding.countryNameText.setText(selectedLandmark.country);
