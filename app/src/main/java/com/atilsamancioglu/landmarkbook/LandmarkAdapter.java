@@ -60,11 +60,14 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.Landma
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             
            //TIKLAYINCA NE OLACAK ORASI BURDA!!
+            
             @Override
             public void onClick(View v) {
+                //contect almak için elemanı almak için
                 Intent intent = new Intent(holder.itemView.getContext(),DetailActivity.class);
                 Singleton singleton = Singleton.getInstance();
                 singleton.setChosenLandmark(landmarkList.get(position));
+                //hangisindeyse onu göster.
                 //intent.putExtra("landmark",landmarkList.get(position));
                 holder.itemView.getContext().startActivity(intent);
             }
