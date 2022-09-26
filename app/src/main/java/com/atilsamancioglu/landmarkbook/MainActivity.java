@@ -48,9 +48,13 @@ a
         landmarkArrayList.add(londonBridge);
 
         //RecyclerView
+        //ARKA ARKAYA GÖRÜNSÜN DİyE-lİNEARlAYOUTManager-Alt Alta gözüküyor
+        //pisa-eiffel vs
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //LANDMARKADAPTER OLUŞTU 
         LandmarkAdapter landmarkAdapter = new LandmarkAdapter(landmarkArrayList);
+        //OLUSAN ADAPTER İ BURYAYA VERDİK
         binding.recyclerView.setAdapter(landmarkAdapter);
 
 
