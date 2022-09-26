@@ -5,14 +5,16 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     >
-
+    //her recyclerView de kullanılacak şey
+    //adapter kullanarak bu XML koda bağlanır(recycler view a )
+      
     <TextView
         android:id="@+id/recyclerViewTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Test"
         android:textSize="20sp"
-        android:layout_margin="5dp"
+        android:layout_margin="5dp" 
         android:textColor="@color/colorPrimary"
         >
 
