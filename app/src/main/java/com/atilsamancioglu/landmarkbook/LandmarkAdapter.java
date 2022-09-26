@@ -19,7 +19,8 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.Landma
     
     
 
-    ArrayList<Landmark> landmarkList;
+    ArrayList<Landmark> landmarkList; //main activity de ulasabilmek için oluşturuldu
+    //çünkü return de ArrayList kadar döndürülecek!
 
     public LandmarkAdapter(ArrayList<Landmark> landmarkList) {
         this.landmarkList = landmarkList;
@@ -28,9 +29,20 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.Landma
     @NonNull
     @Override
     public LandmarkHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        
         //XML i bağlama işlemi binding burda olur
+        
         RecyclerRowBinding recyclerRowBinding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new LandmarkHolder(recyclerRowBinding);
+        //parentgetContext çünkü yukardaki sınıfta ViewGroup parent
+        //this üst sınıfa referans verir ve biz aktivitiy içinde değiliz şuan
+        //parent a bağlanmasına-false
+        
+        //ınflate-xml ile kodu birbirine bağlamaya calısıyor
+        
+        return new LandmarkHolder(recyclerRowBinding); 
+        
+        //ViewHolder sınıfından bir obje döndermemiz lazım
+        //LandMarkHolder-bindingi-recyclerrowbinding
     }
 
     @Override
@@ -41,8 +53,13 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.Landma
         //layout içinde hangi verileri göstereceğiz!
         
         holder.binding.recyclerViewTextView.setText(landmarkList.get(position).name);
+        //findviewbyId yerine kullanılır
+        //landmark array de sıra kimdeys (position)
+        //istedğimiz  isim,ülke, vs göster
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
+            
+           //TIKLAYINCA NE OLACAK ORASI BURDA!!
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(),DetailActivity.class);
@@ -60,12 +77,17 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.Landma
     }
 
     public class LandmarkHolder extends RecyclerView.ViewHolder {
+       //yardımcı sınıf
         //Tek olayı Görünüm tutucudur.
 
         private RecyclerRowBinding binding;
+        //View Binding burda kullanılacak
+        //recycler row içinde bir binding oluştu
 
         public LandmarkHolder(RecyclerRowBinding binding) {
-            super(binding.getRoot());
+            //landmarkholder her olusunca bir binding isteyecek -
+            //ve verilen parametreye göre bağlanır
+            super(binding.getRoot()); //görünümü alır
             this.binding = binding;
         }
     }
